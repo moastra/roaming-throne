@@ -3,6 +3,8 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
+const port = process.env.PORT || 3001;
+
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 
@@ -20,4 +22,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter(dbHelpers));
 
-module.exports = app;
+
+const http = app.listen(port, () => {
+  console.log(`Server listening on PORT: ${port}`);
+});
+
+// module.exports = app;

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import "./App.css";
 import useApplicationData from "./hooks/useApplicationData";
 

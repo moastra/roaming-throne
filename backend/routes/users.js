@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getPostsByUsers } = require("../helpers/dataHelpers");
+const { getPostsByUsers } = require("../db/helpers/dataHelpers");
 
 module.exports = ({ getUsers, getUserByEmail, addUser, getUsersPosts }) => {
   /* GET users listing. */
@@ -28,6 +28,7 @@ module.exports = ({ getUsers, getUserByEmail, addUser, getUsersPosts }) => {
   });
 
   router.post("/", (req, res) => {
+    // eslint-disable-next-line camelcase
     const { first_name, last_name, email, password } = req.body;
 
     getUserByEmail(email)
